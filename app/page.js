@@ -1,7 +1,7 @@
 'use client'
 import { Main } from 'next/document'
 import React, { useState } from 'react'
-import bg from './bg_img.jpg'
+import bg from './i3.jpg'
 
 
 const page = () => {
@@ -18,13 +18,13 @@ const page = () => {
     setMainTask(copytask)
   }
   
-  let renderTask=<h5>Get things Done, A list that refreshes Everyday</h5>;
+  let renderTask=<h5 className='mt-72 opacity-50 font-bold '>Get things Done, A list that refreshes Everyday...</h5>;
   if(MainTask.length>0){
   renderTask=MainTask.map((value,index)=>{
     return(
       <>
       <div className='flex items-center space-x-4 bg-gray-100 p-4 rounded-lg shadow-md'>
-      <span className="text-lg font-semibold text-gray-700">{index +1}. {value}</span>
+      <div className="text-lg font-semibold text-gray-700">{index +1}. {value}</div>
       <button onClick={ ()=> {
         deletehandler(index)
       } 
@@ -36,8 +36,8 @@ const page = () => {
   }
   return (
     <><div>
-      <h1 className='fixed top-0 left-0 w-full bg-blue-500 text-white pl-4 text-center ' >°To-Do List</h1>
-      <div className = 'ml-60 text-center font-medium bg-blue-200 w-96 mt-10 h-6 m-5 rounded'> 
+      <h1 className='fixed top-0 left-0 w-full bg-blue-500 text-white pl-4 text-center opacity-50' >°To-Do List</h1>
+      <div className = 'ml-60 text-center font-medium bg-slate-200 w-96 mt-10 h-6 m-5 rounded opacity-80'> 
         <ul>  
           <li>
               {renderTask}
@@ -51,13 +51,9 @@ const page = () => {
       <input 
       value={title}
       onChange={(e)=>{
-        console.log(e)
         settitle(e.target.value)
       }}
-      type='text' placeholder='Add task' className='px-4 py-2 bg-blue-500 text-white font-semibold rounded-r-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50'/>
-      <button className='bg-gray-700 rounded text-white font-bold ml-2'>
-        Add Task
-      </button>
+      type='text' placeholder='Add task' className='w-full px-4 py-2 bg-blue-500 text-white font-semibold rounded-r-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50'/>
       </div>
     </form>
     </div>
